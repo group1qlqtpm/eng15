@@ -1,0 +1,187 @@
+{
+  "id": 1,
+  "class": "Lớp 5",
+  "semester": "Cuối học kì 1 - Bài kiểm tra số 1",
+  "dataList": [
+    {
+      "id": 1,
+      "question": "What is the highest among the answer below?",
+      "answer": "b",
+      "a": "5 centimeters",
+      "b": "20 meters",
+      "c": "200 centimeters",
+      "d": "100 decimeters"
+    },
+    {
+      "id": 2,
+      "question": "What was the matter with him? He........ a toothache",
+      "answer": "d",
+      "a": "to have   ",
+      "b": "have",
+      "c": "has",
+      "d": "had"
+    },
+    {
+      "id": 3,
+      "question": "What subject is he......... now? Vietnamese.",
+      "answer": "c",
+      "a": "to learn",
+      "b": "learn",
+      "c": "learning",
+      "d": "learned"
+    },
+    {
+      "id": 4,
+      "question": "............ did she go yesterday morning? She went to the bookshop.",
+      "answer": "b",
+      "a": "What",
+      "b": "Where",
+      "c": "When",
+      "d": "Why"
+    },
+    {
+      "id": 5,
+      "question": "Are you free........ the evening? Yes, I am.",
+      "answer": "b",
+      "a": "in",
+      "b": "on",
+      "c": "at",
+      "d": "to"
+    },
+    {
+      "id": 6,
+      "question": "She is going to......... television tonight.",
+      "answer": "d",
+      "a": "sing",
+      "b": "play",
+      "c": "stay",
+      "d": "watch"
+    },
+    {
+      "id": 7,
+      "question": "............ is that ? It's my teacher.",
+      "answer": "b",
+      "a": "What",
+      "b": "Who",
+      "c": "Where",
+      "d": "How"
+    },
+    {
+      "id": 8,
+      "question": "Does she like sandwiches ?......................",
+      "answer": "c",
+      "a": "Yes, she do",
+      "b": "Yes, she is",
+      "c": "Yes, she does",
+      "d": "Yes, she like"
+    },
+    {
+      "id": 9,
+      "question": "This is Mai.............. mother is a doctor.",
+      "answer": "c",
+      "a": "his",
+      "b": "she",
+      "c": "her",
+      "d": "he"
+    },
+    {
+      "id": 10,
+      "question": "She............. a banana.",
+      "answer": "a",
+      "a": "wants",
+      "b": "want",
+      "c": "to want",
+      "d": "wantes"
+    },
+    {
+      "id": 11,
+      "question": "He is................... Vietnam",
+      "answer": "a",
+      "a": "from",
+      "b": "on",
+      "c": "in",
+      "d": "at"
+    },
+    {
+      "id": 12,
+      "question": "............ is that ? It's my teacher.",
+      "answer": "b",
+      "a": "What",
+      "b": "Who",
+      "c": "Where",
+      "d": "How"
+    },
+    {
+      "id": 13,
+      "question": "................... you like to play hide and seek with me?",
+      "answer": "d",
+      "a": "are",
+      "b": "where",
+      "c": "does",
+      "d": "do"
+    },
+    {
+      "id": 14,
+      "question": "Did you....................... teacher's Day last month?",
+      "answer": "c",
+      "a": "celebrated",
+      "b": "celebrating",
+      "c": "celebrate",
+      "d": "celebrater"
+    },
+    {
+      "id": 15,
+      "question": "Does he........................ a sore-throat?",
+      "answer": "c",
+      "a": "has",
+      "b": "had",
+      "c": "have",
+      "d": "having"
+    },
+    {
+      "id": 16,
+      "question": "We went to the cinema....................",
+      "answer": "b",
+      "a": "today",
+      "b": "yesterday",
+      "c": "tomorrow",
+      "d": "next Sunday"
+    },
+    {
+      "id": 17,
+      "question": "A housewife often does......................",
+      "answer": "c",
+      "a": "homework",
+      "b": "hardwork",
+      "c": "housework",
+      "d": "exercises"
+    },
+    {
+      "id": 18,
+      "question": "It's hot in Summer,..................... ?",
+      "answer": "b",
+      "a": "is it",
+      "b": "isn't it",
+      "c": "do it",
+      "d": "does it"
+    },
+    {
+      "id": 19,
+      "question": "...... your birthday? It's in May.",
+      "answer": "b",
+      "a": "What's",
+      "b": "When's",
+      "c": "It's",
+      "d": "Where's"
+    },
+    {
+      "id": 20,
+      "question": "Would you like..... milk? No, thanks",
+      "answer": "c",
+      "a": "an",
+      "b": "a",
+      "c": "some",
+      "d": "one"
+    }
+  ]
+}

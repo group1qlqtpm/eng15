@@ -1,4 +1,4 @@
-# backend-fe
+# server-sails
 
 a [Sails v1](https://sailsjs.com) application
 
@@ -14,7 +14,7 @@ a [Sails v1](https://sailsjs.com) application
 
 ### Version info
 
-This app was originally generated on Sun Nov 10 2019 23:53:01 GMT+0700 (Indochina Time) using Sails v1.2.3.
+This app was originally generated on Wed Nov 20 2019 23:56:27 GMT+0700 (Indochina Time) using Sails v1.2.3.
 
 <!-- Internally, Sails used [`sails-generate@1.16.13`](https://github.com/balderdashy/sails-generate/tree/v1.16.13/lib/core-generators/new). -->
 

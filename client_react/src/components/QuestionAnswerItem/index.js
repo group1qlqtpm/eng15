@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
-import { Radio, Icon } from 'antd';
+import React, { useState } from "react";
+import { Icon } from "antd";
 
-import { Wrapper, Question, Answer } from './StyledComponents';
+import { Wrapper, Question, AnswerWrapper, Answer } from "./StyledComponents";
 
-export default function({ no, data, ...rest }) {
-  const [value, setValue] = useState('');
+import AnswerButton from "./AnswerButton";
 
-  const onValueChange = (e) => {
-    setValue(e.target.value);
+export default function({ no, data, onChange, ...rest }) {
+  console.log("TCL: rest", rest);
+  const [value, setValue] = useState("");
 
-    if (rest.onChange) {
-      rest.onChange(e.target.value);
+  const onValueChange = value => () => {
+    if (rest.disabled) return;
+
+    setValue(value);
+
+    if (onChange) {
+      onChange(value);
     }
   };
 
@@ -19,24 +24,34 @@ export default function({ no, data, ...rest }) {
       <Question>
         {`${no}. ${data.question} `}
         {rest.disabled && value === data.answer && (
-          <Icon type="check" style={{ color: '#52c41a' }} />
+          <Icon type="check" style={{ color: "#52c41a" }} />
         )}
         {rest.disabled && value !== data.answer && (
-          <Icon type="close" style={{ color: '#eb2f96' }} />
+          <Icon type="close" style={{ color: "#eb2f96" }} />
         )}
       </Question>
 
-      <Radio.Group
-        size="small"
-        {...rest}
-        value={value}
-        onChange={onValueChange}
-      >
-        <Answer value="a">{data.a}</Answer>
-        <Answer value="b">{data.b}</Answer>
-        <Answer value="c">{data.c}</Answer>
-        <Answer value="d">{data.d}</Answer>
-      </Radio.Group>
+      <AnswerWrapper>
+        <Answer isActive={value === "a"} onClick={onValueChange("a")}>
+          <AnswerButton>A</AnswerButton>
+          {data.a}
+        </Answer>
+
+        <Answer isActive={value === "b"} onClick={onValueChange("b")}>
+          <AnswerButton>B</AnswerButton>
+          {data.b}
+        </Answer>
+
+        <Answer isActive={value === "c"} onClick={onValueChange("c")}>
+          <AnswerButton>C</AnswerButton>
+          {data.c}
+        </Answer>
+
+        <Answer isActive={value === "d"} onClick={onValueChange("d")}>
+          <AnswerButton>D</AnswerButton>
+          {data.d}
+        </Answer>
+      </AnswerWrapper>
     </Wrapper>
   );
 }

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Icon } from "antd";
 
+import { dataListFields } from "my-redux/do-exam/constants";
+
 import { Wrapper, Question, AnswerWrapper, Answer } from "./StyledComponents";
 
 import AnswerButton from "./AnswerButton";
 
 export default function({ no, data, onChange, ...rest }) {
-  console.log("TCL: rest", rest);
   const [value, setValue] = useState("");
 
   const onValueChange = value => () => {
@@ -22,34 +23,34 @@ export default function({ no, data, onChange, ...rest }) {
   return (
     <Wrapper>
       <Question>
-        {`${no}. ${data.question} `}
-        {rest.disabled && value === data.answer && (
+        {`${no}. ${data[dataListFields.QUESTION]} `}
+        {rest.disabled && value === data[dataListFields.QUESTION] && (
           <Icon type="check" style={{ color: "#52c41a" }} />
         )}
-        {rest.disabled && value !== data.answer && (
+        {rest.disabled && value !== data[dataListFields.ANSWER] && (
           <Icon type="close" style={{ color: "#eb2f96" }} />
         )}
       </Question>
 
       <AnswerWrapper>
-        <Answer isActive={value === "a"} onClick={onValueChange("a")}>
+        <Answer isActive={value === "A"} onClick={onValueChange("A")}>
           <AnswerButton>A</AnswerButton>
-          {data.a}
+          {data[dataListFields.A]}
         </Answer>
 
-        <Answer isActive={value === "b"} onClick={onValueChange("b")}>
+        <Answer isActive={value === "B"} onClick={onValueChange("B")}>
           <AnswerButton>B</AnswerButton>
-          {data.b}
+          {data[dataListFields.B]}
         </Answer>
 
-        <Answer isActive={value === "c"} onClick={onValueChange("c")}>
+        <Answer isActive={value === "C"} onClick={onValueChange("C")}>
           <AnswerButton>C</AnswerButton>
-          {data.c}
+          {data[dataListFields.C]}
         </Answer>
 
-        <Answer isActive={value === "d"} onClick={onValueChange("d")}>
+        <Answer isActive={value === "D"} onClick={onValueChange("D")}>
           <AnswerButton>D</AnswerButton>
-          {data.d}
+          {data[dataListFields.D]}
         </Answer>
       </AnswerWrapper>
     </Wrapper>

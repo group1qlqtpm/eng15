@@ -1,12 +1,12 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Col, PageHeader, Row, Modal, Result, Button } from 'antd';
+import React from "react";
+import { connect } from "react-redux";
+import { Col, PageHeader, Row, Modal, Result, Button } from "antd";
 
-import { getQuestionOfExamAction } from 'my-redux/do-exam/actions';
-import QuestionAnswerItem from 'components/QuestionAnswerItem';
-import { fields } from 'my-redux/do-exam/constants';
+import { getQuestionOfExamAction } from "my-redux/do-exam/actions";
+import QuestionAnswerItem from "components/QuestionAnswerItem";
+import { fields } from "my-redux/do-exam/constants";
 
-import { Wrapper, Content, Countdown, SubmitButton } from './StyledComponents';
+import { Wrapper, Content, Countdown, SubmitButton } from "./StyledComponents";
 
 class Home extends React.PureComponent {
   state = {
@@ -14,25 +14,25 @@ class Home extends React.PureComponent {
     isSubmitted: false,
     picked: [],
     totalPoint: 0,
-    isShowModal: false,
+    isShowModal: false
   };
 
   timer = null;
 
   componentDidMount() {
-    const onSuccess = (response) => {
+    const onSuccess = response => {
       this.setState({
-        picked: Array(response[fields.DATA_LIST].length).fill(''),
+        picked: Array(response.length).fill("")
       });
     };
 
-    this.props.getQuestionOfExam('123', onSuccess);
+    this.props.getQuestionOfExam("123", onSuccess);
 
     this.timer = setInterval(() => {
       const nextTimeCountdown = this.state.timeCountdown - 1;
 
       this.setState({
-        timeCountdown: nextTimeCountdown,
+        timeCountdown: nextTimeCountdown
       });
 
       if (nextTimeCountdown === 0) {
@@ -59,18 +59,18 @@ class Home extends React.PureComponent {
     this.setState({
       isSubmitted: true,
       totalPoint,
-      isShowModal: true,
+      isShowModal: true
     });
   };
 
-  onChangePickedValue = (no) => (value) => {
+  onChangePickedValue = no => value => {
     const { picked } = this.state;
 
     picked[no] = value;
 
     this.setState({
       ...this.state,
-      picked,
+      picked
     });
   };
 
@@ -122,10 +122,10 @@ class Home extends React.PureComponent {
 
         <Modal visible={isShowModal} footer={null} closable={false}>
           <Result
-            status={isPassedTheTest ? 'success' : 'error'}
+            status={isPassedTheTest ? "success" : "error"}
             title={
               <div>
-                Kết quả:{' '}
+                Kết quả:{" "}
                 <span>
                   {totalPoint}/{questionLength}
                 </span>
@@ -133,8 +133,8 @@ class Home extends React.PureComponent {
             }
             subTitle={
               isPassedTheTest
-                ? 'Bạn đã vượt qua bài kiểm tra'
-                : 'Bạn có thể làm tốt hơn thế'
+                ? "Bạn đã vượt qua bài kiểm tra"
+                : "Bạn có thể làm tốt hơn thế"
             }
             extra={[<Button onClick={this.onCloseModal}>Đồng ý</Button>]}
           />
@@ -145,12 +145,12 @@ class Home extends React.PureComponent {
 }
 
 const mapStateToProps = ({ doExam }) => ({
-  doExam,
+  doExam
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   getQuestionOfExam: (id, callback) =>
-    dispatch(getQuestionOfExamAction(id, callback)),
+    dispatch(getQuestionOfExamAction(id, callback))
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

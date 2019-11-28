@@ -31,8 +31,8 @@ insert into bai_kiem_tra values(1,1,1);
 /*
 bai_kiem_tra_cau_trac_nghiem
 */
-insert into bai_kiem_tra_cau_trac_nghiem values(1,1,1);
-insert into bai_kiem_tra_cau_trac_nghiem values(2,2,1);
+insert into bai_kiem_tra_cau_trac_nghiem values(1,1);
+insert into bai_kiem_tra_cau_trac_nghiem values(2,2);
 insert into bai_kiem_tra_cau_trac_nghiem values(1,3);
 insert into bai_kiem_tra_cau_trac_nghiem values(1,4);
 insert into bai_kiem_tra_cau_trac_nghiem values(1,5);

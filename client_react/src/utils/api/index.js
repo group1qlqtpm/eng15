@@ -1,12 +1,12 @@
-import axios from 'axios';
-import qs from 'query-string';
+import axios from "axios";
+import qs from "query-string";
 
 import {
   METHOD,
   typeAPIRequest,
   typeAPISuccess,
-  typeAPIFail,
-} from './constants';
+  typeAPIFail
+} from "./constants";
 
 const apiAction = (
   dispatch,
@@ -14,22 +14,22 @@ const apiAction = (
   url,
   method = METHOD.GET,
   data = {},
-  headers = {},
+  headers = {}
 ) =>
   new Promise((resolve, reject) => {
     dispatch({ type: typeAPIRequest(action) });
 
     axios({
       method,
-      headers: { 'Content-Type': 'application/json', ...headers },
+      headers: { "Content-Type": "application/json", ...headers },
       data: qs.stringify(data),
-      url,
+      url
     })
-      .then((res) => {
-        dispatch({ type: typeAPISuccess(action), payload: res.data });
-        resolve(res.data);
+      .then(res => {
+        dispatch({ type: typeAPISuccess(action), payload: res.data.data });
+        resolve(res.data.data);
       })
-      .catch((err) => {
+      .catch(err => {
         dispatch({ type: typeAPIFail(action) });
         reject(err);
       });

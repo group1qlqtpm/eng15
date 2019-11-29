@@ -1,42 +1,58 @@
-import React, { useState } from 'react';
-import { Radio, Icon } from 'antd';
+import React, { useState } from "react";
+import { Icon } from "antd";
 
-import { Wrapper, Question, Answer } from './StyledComponents';
+import { dataListFields } from "my-redux/do-exam/constants";
 
-export default function({ no, data, ...rest }) {
-  const [value, setValue] = useState('');
+import { Wrapper, Question, AnswerWrapper, Answer } from "./StyledComponents";
 
-  const onValueChange = (e) => {
-    setValue(e.target.value);
+import AnswerButton from "./AnswerButton";
 
-    if (rest.onChange) {
-      rest.onChange(e.target.value);
+export default function({ no, data, onChange, ...rest }) {
+  const [value, setValue] = useState("");
+
+  const onValueChange = value => () => {
+    if (rest.disabled) return;
+
+    setValue(value);
+
+    if (onChange) {
+      onChange(value);
     }
   };
 
   return (
     <Wrapper>
       <Question>
-        {`${no}. ${data.question} `}
-        {rest.disabled && value === data.answer && (
-          <Icon type="check" style={{ color: '#52c41a' }} />
+        {`${no}. ${data[dataListFields.QUESTION]} `}
+        {rest.disabled && value === data[dataListFields.QUESTION] && (
+          <Icon type="check" style={{ color: "#52c41a" }} />
         )}
-        {rest.disabled && value !== data.answer && (
-          <Icon type="close" style={{ color: '#eb2f96' }} />
+        {rest.disabled && value !== data[dataListFields.ANSWER] && (
+          <Icon type="close" style={{ color: "#eb2f96" }} />
         )}
       </Question>
 
-      <Radio.Group
-        size="small"
-        {...rest}
-        value={value}
-        onChange={onValueChange}
-      >
-        <Answer value="a">{data.a}</Answer>
-        <Answer value="b">{data.b}</Answer>
-        <Answer value="c">{data.c}</Answer>
-        <Answer value="d">{data.d}</Answer>
-      </Radio.Group>
+      <AnswerWrapper>
+        <Answer isActive={value === "A"} onClick={onValueChange("A")}>
+          <AnswerButton>A</AnswerButton>
+          {data[dataListFields.A]}
+        </Answer>
+
+        <Answer isActive={value === "B"} onClick={onValueChange("B")}>
+          <AnswerButton>B</AnswerButton>
+          {data[dataListFields.B]}
+        </Answer>
+
+        <Answer isActive={value === "C"} onClick={onValueChange("C")}>
+          <AnswerButton>C</AnswerButton>
+          {data[dataListFields.C]}
+        </Answer>
+
+        <Answer isActive={value === "D"} onClick={onValueChange("D")}>
+          <AnswerButton>D</AnswerButton>
+          {data[dataListFields.D]}
+        </Answer>
+      </AnswerWrapper>
     </Wrapper>
   );
 }

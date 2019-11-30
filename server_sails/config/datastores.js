@@ -47,8 +47,8 @@ module.exports.datastores = {
      ***************************************************************************/
     //mysql://localhost:3306/english_test_manager
     adapter: require("sails-mysql"),
-    // url: 'mysql://root:@localhost:3306/english_test_manager',
+    url: 'mysql://root:868531bong@localhost:3306/english_test_manager',
     //url: 'mysql://root:868531bong@localhost:3306/eng_15',
-    url: "mysql://mPprD1EnMS:LCnTJxIncV@remotemysql.com:3306/mPprD1EnMS"
+    //url: "mysql://mPprD1EnMS:LCnTJxIncV@remotemysql.com:3306/mPprD1EnMS"
   }
 };

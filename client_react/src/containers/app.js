@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import routes from 'config/routes';
 import Home from 'containers/Home/Loadable';
+import Login from 'containers/Login/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
@@ -17,6 +18,7 @@ function App() {
       <Header />
       <Switch>
         <Route exact path={routes.index} component={Home} />
+        <Route exact path={routes.login} component={Login} />
       </Switch>
 
       <Footer />

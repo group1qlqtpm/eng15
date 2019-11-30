@@ -20,7 +20,8 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  '/baikiemtra/detail': 'BaikiemtraController.detail'
+  '/baikiemtra/detail': 'BaikiemtraController.detail',
+  'POST /taikhoan/dangnhap': { action: 'taikhoan/dangnhap' }
 
 
   /***************************************************************************

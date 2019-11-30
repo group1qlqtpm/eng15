@@ -18,7 +18,6 @@ const apiAction = (
 ) =>
   new Promise((resolve, reject) => {
     dispatch({ type: typeAPIRequest(action) });
-
     axios({
       method,
       headers: { "Content-Type": "application/json", ...headers },

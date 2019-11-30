@@ -4,42 +4,41 @@
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
  */
+var md5 = require('md5');
 
 module.exports = {
 
-
-
-  tableName: 'users',
+  tableName: 'tai_khoan',
 
   // attributes: types, validations ans defaults values
   attributes: {
+    createdAt: false,
+    updatedAt: false,
     id: {
       type: 'integer',
       autoIncrement: true,
     },
-    firstName: {
+    username: {
       type: 'string',
       required: true,
     },
-    lastName: {
+    password: {
       type: 'string',
       required: true,
     },
-    email: {
+    name: {
       type: 'string',
       unique: true,
       required: true,
     },
-    phone: {
+    type: {
       type: 'string',
       required: true
     },
-    address: {
-      type: 'string',
-      required: true,
-    },
   },
-
-
+  beforeCreate: function (values, cb) {
+    values.password = md5(values.password);
+    cb();
+  } 
 };
 

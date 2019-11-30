@@ -10,17 +10,35 @@ import './index.css';
 
 
 class Login extends React.Component {
+
+  state = {
+    loginErr: false
+  };
+
+  constructor(props) {
+    super(props);
+    this.onSuccess = this.onSuccess.bind(this);
+  }
+
+  onSuccess = response => {
+    if (response.length > 0) {
+      localStorage.setItem('userLogin', response[0]);
+      this.props.history.push('/');
+    }
+    else {
+      this.setState({
+        loginErr: true
+      });
+    }
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        const onSuccess = response => {
-          console.log(response.data);
-        };
-        var body = {username: "bongnguyen", password: "123456"};
-        this.props.postLogin(body, onSuccess);
+        var body = { username: values.username, password: values.password };
+        this.props.postLogin(body, this.onSuccess);
       }
-     
     });
   };
 
@@ -54,6 +72,11 @@ class Login extends React.Component {
                 />,
               )}
             </Form.Item>
+            {this.state.loginErr == true ?
+              <Form.Item
+                validateStatus="error"
+                help="User name or password incorrect!"
+              ></Form.Item> : ""}
             <Form.Item>
               {getFieldDecorator('remember', {
                 valuePropName: 'checked',
@@ -64,7 +87,7 @@ class Login extends React.Component {
                     </a>
               <Button type="primary" htmlType="submit" className="login-form-button">
                 Log in
-                    </Button>
+              </Button>
 
               Or <a href="">register now!</a>
             </Form.Item>
@@ -75,8 +98,8 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = ({ doExam }) => ({
-  doExam
+const mapStateToProps = ({ prop }) => ({
+  prop
 });
 
 const mapDispatchToProps = dispatch => ({

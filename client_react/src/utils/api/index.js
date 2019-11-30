@@ -21,7 +21,7 @@ const apiAction = (
     axios({
       method,
       headers: { "Content-Type": "application/json", ...headers },
-      data: qs.stringify(data),
+      data: JSON.stringify(data),
       url
     })
       .then(res => {

@@ -1,5 +1,5 @@
 // The apiUrl function name: {method}{action}
-export const endpoint = "https://eng-15-api.herokuapp.com";
+export const endpoint = "http://localhost:1337";
 
 export const postLogin = () => `${endpoint}/user/login`;
 export const postLogout = () => `${endpoint}/user/logout`;

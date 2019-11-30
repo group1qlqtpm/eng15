@@ -132,9 +132,10 @@ module.exports = {
      *                                                                          *
      ***************************************************************************/
     cors: {
-      // allRoutes: true,
-      // allowOrigins: "https://eng-15-client.herokuapp.com",
-      // allowCredentials: false
+      allRoutes: true,
+      allowOrigins: "*",
+      allowCredentials: false,
+      allowRequestMethods: 'GET,PUT,POST,OPTIONS,HEAD,DELETE'
     }
   },
 

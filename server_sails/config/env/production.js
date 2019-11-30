@@ -132,9 +132,9 @@ module.exports = {
      *                                                                          *
      ***************************************************************************/
     cors: {
-      allRoutes: true,
-      allowOrigins: "*",
-      allowCredentials: false
+      // allRoutes: true,
+      // allowOrigins: "https://eng-15-client.herokuapp.com",
+      // allowCredentials: false
     }
   },
 
@@ -347,5 +347,6 @@ module.exports = {
     // sails_custom__stripeSecret=sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm
     // ```
     //--------------------------------------------------------------------------
-  }
+  },
+  port: 3000
 };

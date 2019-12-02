@@ -1,5 +1,6 @@
 export const GET_QUESTION_OF_EXAM = "GET_QUESTION_OF_EXAM";
 export const POST_LOGIN = "POST_LOGIN";
+export const POST_REGISTER = "POST_REGISTER";
 
 export const fields = {
   ID: "id",

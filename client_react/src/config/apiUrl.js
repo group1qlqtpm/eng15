@@ -2,6 +2,7 @@
 export const endpoint = "http://localhost:1337";
 
 export const postLogin = () => `${endpoint}/taikhoan/dangnhap`;
+export const postRegister = () => `${endpoint}/taikhoan/dangky`;
 export const postLogout = () => `${endpoint}/user/logout`;
 export const getUserInfo = () => `${endpoint}/user/info`;
 

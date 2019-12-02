@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import routes from 'config/routes';
 import Home from 'containers/Home/Loadable';
 import Login from 'containers/Login/Loadable';
+import Register from 'containers/Register/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
@@ -30,6 +31,7 @@ function App() {
       <Switch>
         <PrivateRoute exact path={routes.index} component={Home} />
         <Route exact path={routes.login} component={Login} />
+        <Route exact path={routes.register} component={Register} />
       </Switch>
 
       <Footer />

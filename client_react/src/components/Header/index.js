@@ -25,7 +25,7 @@ class Header extends React.PureComponent {
           </Col>
 
           <User lg={8} md={10} xs={14}>
-            Chào, Nguyễn Văn A &nbsp;
+            Chào, {localStorage.getItem("userLogin") != undefined ? JSON.parse(localStorage.getItem("userLogin")).name : "Nguyễn Văn A"} &nbsp;
             <Avatar src="/logo.jpg"></Avatar>
           </User>
         </TopWrapper>

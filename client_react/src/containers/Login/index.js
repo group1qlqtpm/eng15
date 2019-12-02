@@ -22,7 +22,7 @@ class Login extends React.Component {
 
   onSuccess = response => {
     if (response.length > 0) {
-      localStorage.setItem('userLogin', response[0]);
+      localStorage.setItem('userLogin', JSON.stringify(response[0]));
       this.props.history.push('/');
     }
     else {

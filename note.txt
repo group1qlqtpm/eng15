@@ -1,0 +1,1 @@
+sails-inverse-model -u root -p 868531bong -d english_test_manager -t mysql -m  ---- generate model from sql server

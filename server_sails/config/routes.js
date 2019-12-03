@@ -21,7 +21,9 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   '/baikiemtra/detail': 'BaikiemtraController.detail',
-  'POST /taikhoan/dangnhap': { action: 'taikhoan/dangnhap' }
+  'POST /account/login': { action: 'account/login' },
+  'POST /account/register': { action: 'account/register' },
+  'GET /the-test/the-test-from-id': { action: 'the-test/the-test-from-id'}
 
 
   /***************************************************************************

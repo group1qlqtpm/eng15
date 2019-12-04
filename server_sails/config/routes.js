@@ -20,10 +20,9 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  '/baikiemtra/detail': 'BaikiemtraController.detail',
   'POST /account/login': { action: 'account/login' },
   'POST /account/register': { action: 'account/register' },
-  'GET /the-test/the-test-from-id': { action: 'the-test/the-test-from-id'}
+  'GET /thetest/thetestfromid': { action: 'the-test/the-test-from-id'}
 
 
   /***************************************************************************

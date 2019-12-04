@@ -4,7 +4,10 @@
 */
 
 module.exports = {
+    tableName: 'the_test_and_the_sentence_question',
     attributes: {
+        createdAt: false,
+        updatedAt: false,
         id_test: {
             type: "number",
             columnType: "int",
@@ -16,6 +19,12 @@ module.exports = {
             columnType: "int",
             isInteger: true,
             required: true
+        },
+        id_test: {
+            model: 'thetest'
+        },
+        id_question:{
+            model: "thesentencequestion"
         }
     }
 };

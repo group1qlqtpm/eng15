@@ -37,6 +37,18 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
+    var verifyUsername = await Account.find({
+      where: { username: inputs.username},
+      select: ['id','username', 'name', 'type']
+    });
+
+    if(verifyUsername.length > 0){
+      return exits.success({
+        message: 'User name created before.',
+        data: []
+      }); 
+    }
+
     var userRecord = await Account.create({username: inputs.username, password: inputs.password, name: inputs.name, type: 1}).fetch();
 
     if (!userRecord) {
@@ -47,7 +59,12 @@ module.exports = {
 
     return exits.success({
       message: 'User has been created successfully.',
-      data: userRecord
+      data: [{
+        id: userRecord.id,
+        username: userRecord.username,
+        type: userRecord.type,
+        name: userRecord.name
+      }]
     });
 
   }

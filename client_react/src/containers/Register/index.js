@@ -6,18 +6,37 @@ import { registerAction } from "my-redux/do-exam/actions";
 
 import { Wrapper, Content, Countdown, SubmitButton } from "./StyledComponents";
 
+import './index.css';
+
 class Register extends React.Component {
 
   state = {
     confirmDirty: false,
     autoCompleteResult: [],
+    registerErr: false
+  };
+
+  onSuccess = response => {
+    if (response.length > 0) {
+      localStorage.setItem('userLogin', JSON.stringify(response[0]));
+      alert("Đăng kí thành công!");
+      this.props.history.push('/');
+      
+      //console.log(response);
+    }
+    else {
+      this.setState({
+         registerErr: true
+      });
+    }
   };
 
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        var body = { username: values.username, password: values.password, name: values.nickname };
+        this.props.postRegister(body, this.onSuccess);
       }
     });
   };
@@ -87,23 +106,23 @@ class Register extends React.Component {
 
         </Col>
         <Content lg={8} md={8} xs={20}>
-          <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-            <Form.Item label="Username">
+          <Form {...formItemLayout} onSubmit={this.handleSubmit} className="register-form">
+            <Form.Item label="Tên Đăng Nhập">
               {getFieldDecorator('username', {
                 rules: [
                   {
                     required: true,
-                    message: 'Please input your username!',
+                    message: 'Vui lòng nhập tên đăng nhập!',
                   },
                 ],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="Password" hasFeedback>
+            <Form.Item label="Mật Khẩu" hasFeedback>
               {getFieldDecorator('password', {
                 rules: [
                   {
                     required: true,
-                    message: 'Please input your password!',
+                    message: 'Vui lòng nhập mật khẩu',
                   },
                   {
                     validator: this.validateToNextPassword,
@@ -111,12 +130,12 @@ class Register extends React.Component {
                 ],
               })(<Input.Password />)}
             </Form.Item>
-            <Form.Item label="Confirm Password" hasFeedback>
+            <Form.Item label="Nhập lại Mật Khẩu" hasFeedback>
               {getFieldDecorator('confirm', {
                 rules: [
                   {
                     required: true,
-                    message: 'Please confirm your password!',
+                    message: 'vui lòng nhập lại mật khẩu!',
                   },
                   {
                     validator: this.compareToFirstPassword,
@@ -127,20 +146,25 @@ class Register extends React.Component {
             <Form.Item
               label={
                 <span>
-                  Name&nbsp;
-              <Tooltip title="What do you want others to call you?">
+                  Họ và tên&nbsp;
+              <Tooltip title="Bạn muốn đặt biệt danh cho bạn là gì?">
                     <Icon type="question-circle-o" />
                   </Tooltip>
                 </span>
               }
             >
               {getFieldDecorator('nickname', {
-                rules: [{ required: true, message: 'Please input your name!', whitespace: true }],
+                rules: [{ required: true, message: 'vui long nhập họ tên của bạn!', whitespace: true }],
               })(<Input />)}
             </Form.Item>
+            {this.state.registerErr == true ?
+              <Form.Item
+                validateStatus="error"
+                help="Tên đăng nhập đã tồn tại!"
+              ></Form.Item> : ""}
             <Form.Item {...tailFormItemLayout}>
-              <Button type="primary" htmlType="submit">
-                Register
+              <Button type="primary" htmlType="submit" className="register-form-button">
+                Đăng kí
               </Button>
             </Form.Item>
           </Form>

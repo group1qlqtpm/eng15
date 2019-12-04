@@ -53,43 +53,43 @@ class Login extends React.Component {
           <Form onSubmit={this.handleSubmit} className="login-form">
             <Form.Item>
               {getFieldDecorator('username', {
-                rules: [{ required: true, message: 'Please input your username!' }],
+                rules: [{ required: true, message: 'Vui lòng nhập tên đăng nhập!' }],
               })(
                 <Input
                   prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  placeholder="Username"
+                  placeholder="Tên Đăng Nhập"
                 />,
               )}
             </Form.Item>
             <Form.Item>
               {getFieldDecorator('password', {
-                rules: [{ required: true, message: 'Please input your Password!' }],
+                rules: [{ required: true, message: 'Vui lòng nhập tên mật khẩu!' }],
               })(
                 <Input
                   prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                   type="password"
-                  placeholder="Password"
+                  placeholder="Mật Khẩu"
                 />,
               )}
             </Form.Item>
             {this.state.loginErr == true ?
               <Form.Item
                 validateStatus="error"
-                help="User name or password incorrect!"
+                help="Tên đăng nhập hoặc mật khẩu không đúng!"
               ></Form.Item> : ""}
             <Form.Item>
               {getFieldDecorator('remember', {
                 valuePropName: 'checked',
                 initialValue: true,
-              })(<Checkbox>Remember me</Checkbox>)}
+              })(<Checkbox>Nhớ mật khẩu</Checkbox>)}
               <a className="login-form-forgot" href="">
-                Forgot password
+                Quên mật khẩu
                     </a>
               <Button type="primary" htmlType="submit" className="login-form-button">
                 Log in
               </Button>
 
-              Or <a href="">register now!</a>
+              Hoặc <a href="">Đăng kí</a>
             </Form.Item>
           </Form>
         </Content>

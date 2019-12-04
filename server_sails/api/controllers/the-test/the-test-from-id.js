@@ -29,12 +29,18 @@ module.exports = {
 
 
   fn: async function (inputs, exits) {
-    var testRecord = await TheTestAndTheChoiceQuestion.find({
+    var choiceQuestionRecord = await TheTestAndTheChoiceQuestion.find({
       where: { id_test: inputs.id}
     }).populate('id_question');
-    var Ids = _.map(testRecord[0].the_test_and_the_choice, 'id_question');
-    console.log(Ids);
-    if (!testRecord) {
+
+    var sentenceQuestionRecord = await TheTestAndTheSentenceQuestion.find({
+      where: { id_test: inputs.id}
+    }).populate('id_question');
+    
+    choiceQuestionRecord = _.map(choiceQuestionRecord, 'id_question');
+    sentenceQuestionRecord = _.map(sentenceQuestionRecord, 'id_question');
+    //console.log(_.map(choiceQuestionRecord, 'id_question'));
+    if (!choiceQuestionRecord || !sentenceQuestionRecord) {
       return exits.invalid({
         message: 'invalid, problem when get the test'
       });
@@ -42,7 +48,10 @@ module.exports = {
 
     return exits.success({
       message: 'User has been got the test, successfully.',
-      data: testRecord
+      data: {
+        choiceQuestion: choiceQuestionRecord,
+        sentenceQuestion: sentenceQuestionRecord
+      }
     });
 
   }

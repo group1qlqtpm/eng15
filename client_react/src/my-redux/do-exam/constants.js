@@ -6,7 +6,9 @@ export const fields = {
   ID: "id",
   CLASS: "class",
   SEMESTER: "semester",
-  DATA_LIST: "dataList"
+  DATA_LIST: "dataList",
+  CHOICE_QUESTION: "choiceQuestion",
+  SENTENCE_QUESTION: "sentenceQuestion",
 };
 
 export const dataListFields = {

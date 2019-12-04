@@ -1,8 +1,8 @@
 // The apiUrl function name: {method}{action}
 export const endpoint = "http://localhost:1337";
 
-export const postLogin = () => `${endpoint}/taikhoan/dangnhap`;
-export const postRegister = () => `${endpoint}/taikhoan/dangky`;
+export const postLogin = () => `${endpoint}/account/login`;
+export const postRegister = () => `${endpoint}/account/register`;
 export const postLogout = () => `${endpoint}/user/logout`;
 export const getUserInfo = () => `${endpoint}/user/info`;
 
@@ -13,4 +13,4 @@ export const deleteEditUser = id => `${endpoint}/user/${id}`;
 export const getUserDetail = id => `${endpoint}/user/${id}`;
 
 // export const getQuestionOfAnExam = (id) => `${endpoint}/exam/question/${id}`;
-export const getQuestionOfAnExam = id => `${endpoint}/baikiemtra/detail?id=1`;
+export const getQuestionOfAnExam = id => `${endpoint}/thetest/thetestfromid?id=${id}`;

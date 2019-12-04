@@ -1,1 +1,9 @@
-@import 'antd/dist/antd.css';
+.register-form {
+    max-width: 800px;
+}
+.register-form-forgot {
+    float: right;
+}
+.register-form-button {
+    width: 100%;
+}

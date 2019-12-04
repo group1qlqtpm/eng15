@@ -21,12 +21,14 @@ class Home extends React.PureComponent {
 
   componentDidMount() {
     const onSuccess = response => {
+      //console.log("------------------bong")
+      //console.log(response);
       this.setState({
         picked: Array(response.length).fill("")
       });
     };
 
-    this.props.getQuestionOfExam("123", onSuccess);
+    this.props.getQuestionOfExam("1", onSuccess);
 
     this.timer = setInterval(() => {
       const nextTimeCountdown = this.state.timeCountdown - 1;
@@ -86,7 +88,9 @@ class Home extends React.PureComponent {
       timeCountdown % 60 >= 10 ? timeCountdown % 60 : `0${timeCountdown % 60}`;
     const questionLength = doExam.examDetail[fields.DATA_LIST].length;
     const isPassedTheTest = totalPoint >= questionLength / 2;
-
+    if (doExam.examDetail[fields.DATA_LIST][fields.CHOICE_QUESTION]) {
+      doExam.examDetail[fields.DATA_LIST] = doExam.examDetail[fields.DATA_LIST][fields.CHOICE_QUESTION];
+    }
     return (
       <Wrapper>
         <Col lg={4} md={4} xs={24}>

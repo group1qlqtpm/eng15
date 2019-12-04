@@ -4,7 +4,10 @@
 */
 
 module.exports = {
+    tableName: 'the_sentence_question',
     attributes: {
+        createdAt: false,
+        updatedAt: false,
         id: {
             type: "number",
             columnType: "int",
@@ -20,6 +23,10 @@ module.exports = {
             type: "string",
             columnType: "varchar",
             maxLength: 45
-        }
+        },
+        the_test_and_the_sentence: {
+            collection: 'thetestandthesentencequestion',
+            via: 'id_question'
+        },
     }
 };

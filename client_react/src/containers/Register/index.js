@@ -20,8 +20,7 @@ class Register extends React.Component {
     if (response.length > 0) {
       localStorage.setItem('userLogin', JSON.stringify(response[0]));
       alert("Đăng kí thành công!");
-      this.props.history.push('/');
-      
+      this.props.history.push('/');     
       //console.log(response);
     }
     else {

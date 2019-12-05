@@ -89,7 +89,8 @@ class Home extends React.PureComponent {
     const questionLength = doExam.examDetail[fields.DATA_LIST].length;
     const isPassedTheTest = totalPoint >= questionLength / 2;
     if (doExam.examDetail[fields.DATA_LIST][fields.CHOICE_QUESTION]) {
-      doExam.examDetail[fields.DATA_LIST] = doExam.examDetail[fields.DATA_LIST][fields.CHOICE_QUESTION];
+      doExam.examDetail[fields.DATA_LIST] =
+        doExam.examDetail[fields.DATA_LIST][fields.CHOICE_QUESTION];
     }
     return (
       <Wrapper>

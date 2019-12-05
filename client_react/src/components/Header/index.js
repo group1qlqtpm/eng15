@@ -1,13 +1,13 @@
-import React from 'react';
-import { Avatar, Col } from 'antd';
+import React from "react";
+import { Avatar, Col } from "antd";
 
 import {
   HeaderWrapper,
   TopWrapper,
   BackGroundImg,
   User,
-  Logo,
-} from './StyledComponents';
+  Logo
+} from "./StyledComponents";
 
 class Header extends React.PureComponent {
   render() {
@@ -25,7 +25,11 @@ class Header extends React.PureComponent {
           </Col>
 
           <User lg={8} md={10} xs={14}>
-            Chào, {localStorage.getItem("userLogin") != undefined ? JSON.parse(localStorage.getItem("userLogin")).name : "Nguyễn Văn A"} &nbsp;
+            Chào,{" "}
+            {localStorage.getItem("userLogin") !== undefined
+              ? (JSON.parse(localStorage.getItem("userLogin")) || {}).name
+              : "Nguyễn Văn A"}{" "}
+            &nbsp;
             <Avatar src="/logo.jpg"></Avatar>
           </User>
         </TopWrapper>

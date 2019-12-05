@@ -13,4 +13,9 @@ export const deleteEditUser = id => `${endpoint}/user/${id}`;
 export const getUserDetail = id => `${endpoint}/user/${id}`;
 
 // export const getQuestionOfAnExam = (id) => `${endpoint}/exam/question/${id}`;
-export const getQuestionOfAnExam = id => `${endpoint}/thetest/thetestfromid?id=${id}`;
+export const getQuestionOfAnExam = id =>
+  `${endpoint}/thetest/thetestfromid?id=${id}`;
+
+export const postAddQuestion = () => `${endpoint}/question/add`;
+export const postAddQuestionToTestExam = () => `${endpoint}/exam/add-question`;
+export const getQuestionList = () => `${endpoint}/question`;

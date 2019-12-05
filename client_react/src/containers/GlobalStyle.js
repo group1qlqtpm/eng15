@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   html,body {
@@ -15,4 +15,8 @@ export const BackGround = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
+`;
+
+export const Content = styled.div`
+  min-height: 76vh;
 `;
